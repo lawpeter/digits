@@ -1,14 +1,49 @@
 html,
 body {
-  --bs-light-rgb: 236, 236, 236;
-  box-sizing: border-box;
   height: 100%;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
-.wrapper {
-  box-sizing: border-box;
-  min-height: 100%;
+
+body {
   display: flex;
   flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  background: fixed center url("/background.png");
+  background-size: cover;
+  min-height: 0;
+}
+
+:root {
+  --nat-navbar-bg: #2f753b;
+  --nat-navbar-bg-rgb: 47, 117, 59;
+  --nat-navbar-text-color: white;
+  --nat-navbar-highlight-text: khaki;
+}
+
+footer, footer a {
+  color: var(--nat-navbar-text-color);
+}
+
+/* Change bootstrap variable values.
+ See https://getbootstrap.com/docs/5.2/customize/css-variables/
+ */
+body {
+  --bs-dark: var(--nat-navbar-bg);
+  --bs-dark-rgb: var(--nat-navbar-bg-rgb);
+}
+
+body .navbar {
+  --bs-navbar-active-color: var(--nat-navbar-highlight-text);
+  --bs-navbar-brand-color: var(--nat-navbar-text-color);
+  --bs-navbar-brand-hover-color: var(--nat-navbar-highlight-text);
+  --bs-navbar-color: var(--nat-navbar-text-color);
+  --bs-navbar-hover-color: var(--nat-navbar-highlight-text);
+}
+
+.bg-dark a.dropdown-item {
+  color: var(--nat-navbar-bg);
 }
