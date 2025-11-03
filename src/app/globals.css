@@ -44,6 +44,7 @@ body .navbar {
   --bs-navbar-hover-color: var(--nat-navbar-highlight-text);
 }
 
+
 .bg-dark a.dropdown-item {
   color: var(--nat-navbar-bg);
 }
