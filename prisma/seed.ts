@@ -36,6 +36,23 @@ async function main() {
       },
     });
   }
+
+  for (const contact of config.defaultContacts) {
+    console.log(`  Adding contact: ${JSON.stringify(contact)}`);
+    // eslint-disable-next-line no-await-in-loop
+    await prisma.contact.upsert({
+      where: { id: config.defaultContacts.indexOf(contact) + 1 },
+      update: {},
+      create: {
+        owner: contact.owner,
+        firstName: contact.firstName,
+        lastName: contact.lastName,
+        address: contact.address,
+        image: contact.image,
+        description: contact.description,
+      },
+    });
+  }
 }
 main()
   .then(() => prisma.$disconnect())
