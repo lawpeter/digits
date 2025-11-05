@@ -18,6 +18,7 @@ const AdminPage = async () => {
     } | null,
   );
   const contacts = await prisma.contact.findMany({});
+
   // console.log(contacts);
 
   return (
