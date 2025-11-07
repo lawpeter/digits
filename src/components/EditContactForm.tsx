@@ -10,7 +10,6 @@ import { editContact } from '@/lib/dbActions';
 type ContactWithId = Contact & { id: number };
 
 const onSubmit = async (data: ContactWithId) => {
-  // console.log(`onSubmit data: ${JSON.stringify(data, null, 2)}`);
   await editContact(data);
   swal('Success', 'Your contact has been updated', 'success', {
     timer: 2000,
