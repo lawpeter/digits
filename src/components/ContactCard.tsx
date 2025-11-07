@@ -1,6 +1,7 @@
 'use client';
 
 import { Card, Image } from 'react-bootstrap';
+import Link from 'next/link';
 import { Contact } from '@/lib/validationSchemas';
 
 interface Props {
@@ -26,6 +27,11 @@ const ContactCard = ({ contact }: Props) => (
       <Card.Subtitle className="mb-2 text-muted">{contact.address}</Card.Subtitle>
       <Card.Text>{contact.description}</Card.Text>
     </Card.Body>
+    {contact.id ? (
+      <Card.Footer>
+        <Link href={`/edit/${contact.id}`}>Edit</Link>
+      </Card.Footer>
+    ) : null}
   </Card>
 );
 
