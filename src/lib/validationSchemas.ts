@@ -43,3 +43,17 @@ export const EditContactSchema = Yup.object({
   description: Yup.string().required('Description is required'),
   owner: Yup.string().required(),
 });
+
+export interface Note {
+  id?: number;
+  contactId: number;
+  note: string;
+  owner: string;
+  createdAt?: string | Date;
+}
+
+export const AddNoteSchema = Yup.object({
+  note: Yup.string().required(),
+  contactId: Yup.number().required(),
+  owner: Yup.string().required(),
+});
