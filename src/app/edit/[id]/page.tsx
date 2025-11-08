@@ -6,6 +6,7 @@ import { loggedInProtectedPage } from '@/lib/page-protection';
 import { prisma } from '@/lib/prisma';
 import EditStuffForm from '@/components/EditStuffForm';
 import dynamic from 'next/dynamic';
+
 const EditContactForm = dynamic(() => import('@/components/EditContactForm'), { ssr: false });
 
 export default async function EditStuffPage({ params }: { params: { id: string | string[] } }) {

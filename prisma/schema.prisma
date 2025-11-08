@@ -52,4 +52,16 @@ model Contact {
   image String
   description String
   owner String
+  notes Note[]
 }
+
+model Note {
+  id        Int      @id @default(autoincrement())
+  contactId Int
+  note      String
+  owner     String
+  createdAt DateTime @default(now())
+  Contact   Contact  @relation(fields: [contactId], references: [id])
+}
+
+// (Removed duplicate Contact model)
