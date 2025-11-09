@@ -21,21 +21,6 @@ async function main() {
     });
     // console.log(`  Created user: ${user.email} with role: ${user.role}`);
   });
-  for (const data of config.defaultData) {
-    const condition = data.condition as Condition || Condition.good;
-    console.log(`  Adding stuff: ${JSON.stringify(data)}`);
-    // eslint-disable-next-line no-await-in-loop
-    await prisma.stuff.upsert({
-      where: { id: config.defaultData.indexOf(data) + 1 },
-      update: {},
-      create: {
-        name: data.name,
-        quantity: data.quantity,
-        owner: data.owner,
-        condition,
-      },
-    });
-  }
 
   for (const contact of config.defaultContacts) {
     console.log(`  Adding contact: ${JSON.stringify(contact)}`);
