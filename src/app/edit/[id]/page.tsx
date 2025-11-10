@@ -1,15 +1,14 @@
 import { getServerSession } from 'next-auth';
 import { notFound } from 'next/navigation';
-import { Stuff, Contact as ContactModel } from '@prisma/client';
+import { Contact as ContactModel } from '@prisma/client';
 import authOptions from '@/lib/authOptions';
 import { loggedInProtectedPage } from '@/lib/page-protection';
 import { prisma } from '@/lib/prisma';
-import EditStuffForm from '@/components/EditStuffForm';
 import dynamic from 'next/dynamic';
 
 const EditContactForm = dynamic(() => import('@/components/EditContactForm'), { ssr: false });
 
-export default async function EditStuffPage({ params }: { params: { id: string | string[] } }) {
+export default async function EditContactPage({ params }: { params: { id: string | string[] } }) {
   // Protect the page, only logged in users can access it.
   const session = await getServerSession(authOptions);
   loggedInProtectedPage(
@@ -25,16 +24,6 @@ export default async function EditStuffPage({ params }: { params: { id: string |
     return (
       <main>
         <EditContactForm contact={contact} />
-      </main>
-    );
-  }
-
-  // Otherwise fall back to Stuff (old behavior)
-  const stuff: Stuff | null = await prisma.stuff.findUnique({ where: { id } });
-  if (stuff) {
-    return (
-      <main>
-        <EditStuffForm stuff={stuff} />
       </main>
     );
   }
