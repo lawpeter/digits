@@ -86,15 +86,3 @@ This project is a small contact manager (named "digits") built with Next.js (App
 
 - If you added the `Note` model in `prisma/schema.prisma`, run `npx prisma migrate dev --name note` and `npx prisma generate` to update the Prisma client before running the app.
 - If you see TypeScript errors referencing `prisma.note` or types for `Note`, regenerate the Prisma client (`npx prisma generate`) after applying migrations.
-- Put your screenshots in `doc/` and reference them with an `<img>` tag, for example:
-
-```html
-<img src="doc/landing.png" alt="Landing page screenshot">
-```
-
-If you'd like, I can add example screenshots (small thumbnails) to the `doc/` folder and update this file with those names — just upload the images and tell me the filenames.
-
----
-
-If you want me to also run the database migration and then run type/lint checks here, give me permission to run commands in the workspace and I'll execute the migration and fix any follow-up issues.
-    StuffItemAdmin.tsx # Row in the admin list stuff page.
